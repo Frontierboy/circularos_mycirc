@@ -1,13 +1,28 @@
 {
   "hosting": {
-    "public": "apps/circOS-web/build",
+    "public": "apps/circOS-web/dist",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   },
-  "functions": {
-    "source": "firebase_backend/functions"
+  "emulators": {
+    "hosting": {
+      "port": 5005
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4000
+    }
   }
 }
